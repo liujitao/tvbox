@@ -12,3 +12,4 @@ logs/suntv.log*
 basefunc
 app/api1_0
 app/static/*
+.DS_Store
