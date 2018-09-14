@@ -1,0 +1,136 @@
+<div class="modal-body">
+  <div class="x_panel">
+    <div>
+      <h3>变更</h3>
+    </div>
+    <div class="ln_solid"></div>
+    <form class="form-horizontal form-label-left" id="main">
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="uuid">会员卡号</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <input class="form-control" type="text" id="uuid" name="uuid" disabled="disabled">
+        </div>
+      </div>
+
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12">会员卡类型</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+            <span id="category"></span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12">关联电视盒</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <select class="form-control" id="stb" name="stb"></select>
+        </div>
+      </div>
+
+      <div class="form-group">
+          <label class="control-label col-md-2 col-sm-2 col-xs-12">关联用户</label>
+          <div class="col-md-8 col-sm-8 col-xs-12">
+              <span class="label label-success" id="customer"></span>
+          </div>
+      </div>
+
+      <div class="ln_solid"></div>
+
+      <div class="col-md-3 col-sm-3 col-xs-3 col-md-offset-3">
+        <button type="button" class="btn btn-sm btn-default btn-block" data-dismiss="modal">
+          <i class="glyphicon glyphicon-off"></i>
+        </button>
+      </div>
+
+      <div class="col-md-3 col-sm-3 col-xs-3">
+        <button type="button" class="btn btn-sm btn-info btn-block" id="save">
+          <i class="glyphicon glyphicon-floppy-disk"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  $(function () {
+    // 选择框初始化
+    var select_stb = $('select#stb').select2({
+      'language': 'zh-CN',
+      'width': '30%',
+      'placeholder': '请选择',
+      'allowClear': true,
+      //'minimumResultsForSearch': -1, // 禁止搜索
+      //'multiple': true, // 多选 
+      'ajax': {
+        'url': '/select/tvbox',
+        'dataType': 'json',
+        'data': function (params) {
+          return {
+            'search': params.term,
+            'category': 'vip'  // 未指派vip
+          }
+        },
+        'processResults': function (data, params) {
+          return {
+            'results': data,
+          }
+        },
+        'cache': true
+      }
+    });
+
+    var config = {
+      'form': '#main',
+      'language': myLanguage,
+      'validate': {
+        'name': {
+          'validation': 'required',
+        },
+        'phone': {
+          'validation': 'required',
+        },
+        'mail': {
+          'validation': 'required',
+        }
+      },
+    };
+
+    $.validate({
+      'modules': 'jsconf',
+      'onModulesLoaded': function () {
+        $.setupValidation(config);
+      }
+    });
+
+    // 选择框事件
+    select_stb.on('select2:select', function (e) { 
+      //console.log(e.params.data);
+      $.get('/select/tvbox/customer', {'uuid': e.params.data.id}, function(s){
+        $('span#customer').html(s.name);
+      });
+    });
+
+    select_stb.on('select2:unselecting', function (e) { 
+      $('span#customer').empty();
+    });
+
+    // 提交按钮事件
+    $('button#save').on('click', function (e) {
+      e.preventDefault();
+      if ($('#main').isValid(myLanguage)) {
+        // 获取更新值
+        var data = {
+          'uuid': $('#uuid').val(),
+          'category': $('#category').attr('value'),
+          'stb': $('#stb').val()
+        };
+
+        // 数据提交后端
+        //console.log(data);
+        form_ajax_submit(data, '/api/vip', 'PUT');
+      } else {
+        console.log('表单验证无效');
+      }
+    });
+
+  })
+</script>

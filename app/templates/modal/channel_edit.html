@@ -1,0 +1,188 @@
+<div class="modal-body">
+  <div class="x_panel">
+    <div>
+      <h3>变更</h3>
+    </div>
+    <div class="ln_solid"></div>
+    <form class="form-horizontal form-label-left" id="main">
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="uuid">uuid</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+          <input class="form-control" type="text" id="uuid" name="uuid" disabled="disabled">
+        </div>
+      </div>
+
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="code">代码</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+          <input class="form-control" type="text" id="name" name="name">
+        </div>
+      </div>
+
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="cname">中文名称(简)</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+          <input class="form-control" type="text" id="cname" name="cname">
+        </div>
+      </div>
+
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="tname">中文名称(繁)</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+          <input class="form-control" type="text" id="tname" name="tname">
+        </div>
+      </div>
+
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="sort_id">排序号</label>
+        <div class="col-md-2 col-sm-2 col-xs-12">
+          <input class="form-control" type="text" id="sort_id" name="sort_id">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12">频道分类</label>
+        <div class="col-md-9 col-sm-9 col-xs-12" id="category">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12">产品包</label>
+        <div class="col-md-9 col-sm-9 col-xs-12" id="product">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12">状态</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+          <div class="radio">
+            <label>
+              <input type="radio" name="status" value="0">
+              <span class="label label-danger">禁用</span>
+            </label>
+            <label>
+              <input type="radio" name="status" value="1">
+              <span class="label label-success">启用</label>
+            <label>
+          </div>
+        </div>
+      </div>
+
+      <div class="ln_solid"></div>
+
+      <div class="col-md-3 col-sm-3 col-xs-3 col-md-offset-3">
+        <button type="button" class="btn btn-sm btn-default btn-block" data-dismiss="modal">
+          <i class="glyphicon glyphicon-off"></i>
+        </button>
+      </div>
+
+      <div class="col-md-3 col-sm-3 col-xs-3">
+        <button type="button" class="btn btn-sm btn-info btn-block" id="save">
+          <i class="glyphicon glyphicon-floppy-disk"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  $(function () {
+    // 获取所有频道分类信息，生成频道分类复选框组
+    $.ajax({
+      'type': 'GET',
+      'url': '/select/channel_category',
+      'async': false,
+      'dataType': 'json',
+      'contentType': 'application/json; charset=utf-8',
+      'success': function (d) {
+        var checkbox = [];
+        $.each(d, function (i, v) {
+          checkbox.push(
+            '<div class="col-xs-3 col-sm-3"><input type="checkbox" name="category" value="' + v.id +
+            '"><span class="label label-success">' + v.text + '</span></div>');
+        });
+        $('div#category').append(checkbox.join(' '));
+      }
+    });
+
+    // 获取所有产品包信息，生成产品包复选框组
+    $.ajax({
+      'type': 'GET',
+      'url': '/select/product',
+      'async': false,
+      'dataType': 'json',
+      'contentType': 'application/json; charset=utf-8',
+      'success': function (d) {
+        var checkbox = [];
+        $.each(d, function (i, v) {
+          checkbox.push(
+            '<div class="col-xs-3 col-sm-3"><input type="checkbox" name="product" value="' + v.id +
+            '"><span class="label label-success">' + v.text + '</span></div>');
+        });
+        $('div#product').append(checkbox.join(' '));
+      }
+    });
+
+    // 表单验证
+    var config = {
+      'form': '#main',
+      'language': myLanguage,
+      'validate': {
+        'name': {
+          'validation': 'required',
+        },
+        'cname': {
+          'validation': 'required',
+        },
+        'sort_id': {
+          'validation': 'required',
+        },
+      },
+    };
+
+    $.validate({
+      'modules': 'jsconf',
+      'onModulesLoaded': function () {
+        $.setupValidation(config);
+      }
+    });
+
+    // 提交按钮事件
+    $('button#save').on('click', function (e) {
+      e.preventDefault();
+      if ($('#main').isValid(myLanguage)) {
+        // 获取更新值
+
+        // 选中频道分类的uuid数组
+        var category = [];
+        $('input:checkbox:checked[name=category]').each(function () {
+          category.push($(this).val());
+        });
+
+        // 选中产品包的uuid数组
+        var product = [];
+        $('input:checkbox:checked[name=product]').each(function () {
+          product.push($(this).val());
+        });
+
+        var data = {
+          'uuid': $('#uuid').val(),
+          'name': $('#name').val(),
+          'cname': $('#cname').val(),
+          'tname': $('#tname').val(),
+          'sort_id': $('#sort_id').val(),
+          'category': category,
+          'product': product,
+          'status': $('input:radio:checked[name=status]').val()
+        };
+
+        // 数据提交后端
+        // console.log(data);
+        form_ajax_submit(data, '/api/channel', 'PUT');
+      } else {
+        console.log('表单验证无效');
+      }
+    });
+
+  })
+</script>

@@ -1,0 +1,71 @@
+<div class="modal-body">
+  <div class="x_panel">
+    <div>
+      <h3>文件上传</h3>
+    </div>
+    <div class="ln_solid"></div>
+
+    <form class="form-horizontal form-label-left" method="post" enctype="multipart/form-data" id="main">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <p>1. 文件大小在200M </br>2. 文件格式 apk jpg png gif csv txt</p>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="input-group">
+            <input type="file" class="form-control" name="file">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" id="upload">上传</button>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ln_solid"></div>
+
+      <div class="col-md-3 col-sm-3 col-xs-3 col-md-offset-4">
+        <button type="button" class="btn btn-sm btn-default btn-block" data-dismiss="modal">
+          <i class="glyphicon glyphicon-off"></i>
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<script>
+  $(function () {
+    // 提交按钮事件
+    $('button#upload').on('click', function (e) {
+      var form_data = new FormData($('form#main')[0]);
+      $.ajax({
+        'type': 'POST',
+        'url': '/api/file_upload',
+        'data': form_data,
+        'contentType': false,
+        'cache': false,
+        'processData': false,
+        'async': true,
+        'success': function (data) {
+          // 去除modal
+          $('#myModal').modal('hide');
+          // 消息处理
+          $('#message').children().children().html('<strong>' + data.msg + '</strong>');
+          $('#message').show();
+          setTimeout(function () {
+            $('#message').fadeOut()
+          }, 10000);
+        },
+        'error': function (data) {
+          // 去除modal
+          $('#myModal').modal('hide');
+          // 消息处理
+          $('#message').children().children().html('<strong>' + data.msg + '</strong>');
+          $('#message').show();
+          setTimeout(function () {
+            $('#message').fadeOut()
+          }, 10000);
+        },
+      });
+    });
+  })
+</script>

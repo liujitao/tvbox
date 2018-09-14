@@ -1,0 +1,237 @@
+<div class="modal-body">
+  <div class="x_panel">
+    <div>
+      <h3>变更</h3>
+    </div>
+    <div class="ln_solid"></div>
+    <form class="form-horizontal form-label-left" id="main">
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="uuid">uuid</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <input class="form-control" type="text" id="uuid" name="uuid" disabled="disabled">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12">型号</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <select class="form-control" id="model" name="model"></select>
+        </div>
+      </div>
+
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="version">版本</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <input class="form-control" type="text" id="version" name="version">
+        </div>
+      </div>
+
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="download_url">下载url</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <input class="form-control" type="text" id="download_url" name="download_url">
+        </div>
+      </div>
+
+
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="md5">文件md5</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <input class="form-control" type="text" id="md5" name="md5">
+        </div>
+      </div>
+
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="size">文件大小(Byte)</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <input class="form-control" type="size" id="size" name="version">
+        </div>
+      </div>
+
+      <div class="form-group">
+          <label class="control-label col-md-2 col-sm-2 col-xs-12">分组</label>
+          <div class="col-md-8 col-sm-8 col-xs-12">
+            <select class="form-control" id="grouping" name="grouping"></select>
+          </div>
+        </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12">强制升级</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <div class="radio">
+            <label>
+              <input type="radio" name="force_update" value="0">
+              <span class="label label-danger">禁用</span>
+            </label>
+            <label>
+              <input type="radio" name="force_update" value="1" checked="checked">
+              <span class="label label-success">启用</label>
+            <label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12">类别</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <div class="radio">
+            <label>
+              <input type="radio" name="category" value="0" checked="checked">
+              <span class="label label-warning">测试</span>
+            </label>
+            <label>
+              <input type="radio" name="category" value="1">
+              <span class="label label-success">正式</label>
+            <label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12">状态</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <div class="radio">
+            <label>
+              <input type="radio" name="status" value="0">
+              <span class="label label-danger">禁用</span>
+            </label>
+            <label>
+              <input type="radio" name="status" value="1" checked="checked">
+              <span class="label label-success">启用</label>
+            <label>
+          </div>
+        </div>
+      </div>
+
+      <div class="ln_solid"></div>
+
+      <div class="col-md-3 col-sm-3 col-xs-3 col-md-offset-3">
+        <button type="button" class="btn btn-sm btn-default btn-block" data-dismiss="modal">
+          <i class="glyphicon glyphicon-off"></i>
+        </button>
+      </div>
+
+      <div class="col-md-3 col-sm-3 col-xs-3">
+        <button type="button" class="btn btn-sm btn-info btn-block" id="save">
+          <i class="glyphicon glyphicon-floppy-disk"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  $(function () {
+    // 选择框初始化
+    var select_model = $('select#model').select2({
+      'language': 'zh-CN',
+      'width': '50%',
+      'placeholder': '请选择',
+      'allowClear': true,
+      'minimumResultsForSearch': -1, // 禁止搜索
+      //'multiple': true, // 多选 
+      'ajax': {
+        'url': '/select/model',
+        'dataType': 'json',
+        'data': function (params) {
+          return {
+            'search': params.term
+          }
+        },
+        'processResults': function (data, params) {
+          return {
+            'results': data,
+          }
+        },
+        'cache': true
+      }
+    });
+
+    var select_grouping = $('select#grouping').select2({
+      'language': 'zh-CN',
+      'width': '100%',
+      'placeholder': '请选择',
+      'allowClear': true,
+      //'minimumResultsForSearch': -1, // 禁止搜索
+      'multiple': true, // 多选 
+      'ajax': {
+        'url': '/select/grouping',
+        'dataType': 'json',
+        'data': function (params) {
+          return {
+            'search': params.term // 用search替代默认请求参数q
+          }
+        },
+        'processResults': function (data, params) {
+          return {
+            'results': data,
+          }
+        },
+        'cache': true
+      }
+    });
+
+    // 表单验证
+    select_model.change(function () {
+      select_model.validate({
+        'validateHiddenInputs': true
+      });
+    });
+
+    var config = {
+      'form': '#main',
+      'language': myLanguage,
+      'validate': {
+        'model': {
+          'validation': 'required',
+        },
+        'version': {
+          'validation': 'required',
+        },
+        'download_url': {
+          'validation': 'required',
+        },
+        'md5': {
+          'validation': 'required',
+        },
+        'size': {
+          'validation': 'required',
+        },
+      },
+    };
+
+    $.validate({
+      'modules': 'jsconf',
+      'onModulesLoaded': function () {
+        $.setupValidation(config);
+      }
+    });
+
+    // 提交按钮事件
+    $('button#save').on('click', function (e) {
+      e.preventDefault();
+      if ($('#main').isValid(myLanguage)) {
+        // 获取更新值
+        var data = {
+          'uuid': $('#uuid').val(),
+          'model': $('#model').val(),
+          'version': $('#version').val(),
+          'download_url': $('#download_url').val(),
+          'md5': $('#md5').val(),
+          'size': $('#size').val(),
+          'force_update': $('input:radio:checked[name=force_update]').val(),
+          'category': $('input:radio:checked[name=category]').val(),
+          'grouping': $('#grouping').val(),
+          'status': $('input:radio:checked[name=status]').val()
+        };
+
+        // 数据提交后端
+        //console.log(data);
+        form_ajax_submit(data, '/api/tvbox_software', 'PUT');
+      } else {
+        console.log('表单验证无效');
+      }
+    });
+
+  })
+</script>

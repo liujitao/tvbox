@@ -1,0 +1,73 @@
+<div class="modal-body">
+  <div class="x_panel">
+    <div>
+      <h3>排序</h3>
+    </div>
+    <div class="ln_solid"></div>
+
+    <ul class="nav nav-pills" id="channel"></ul>
+
+    <div class="ln_solid"></div>
+
+    <div class="col-md-3 col-sm-3 col-xs-3 col-md-offset-3">
+      <button type="button" class="btn btn-sm btn-default btn-block" data-dismiss="modal">
+        <i class="glyphicon glyphicon-off"></i>
+      </button>
+    </div>
+
+    <div class="col-md-3 col-sm-3 col-xs-3">
+      <button type="button" class="btn btn-sm btn-info btn-block" id="save">
+        <i class="glyphicon glyphicon-floppy-disk"></i>
+      </button>
+    </div>
+    </form>
+  </div>
+</div>
+
+<script src="/static/vendors/sortable/Sortable.min.js"></script>
+
+<script>
+  $(function () {
+    // 生成频道列表
+    $.get('/select/sortid_channel', function (d) {
+      var channel = [];
+
+      $.each(d, function (i, v) {
+        if (v.sort_id == 0) {
+          channel.push('<li id="' + v.id + '"><span class="label label-warning">' + v.text + ' ' + v.sort_id + '</span></li>');
+        } else {
+          channel.push('<li id="' + v.id + '"><span class="label label-success">' + v.text + ' ' + v.sort_id + '</span></li>');
+        }
+      });
+
+      $('ul#channel').append(channel.join(''));
+    });
+
+    var channel = document.getElementById('channel');
+
+    Sortable.create(channel, {
+      'group': {
+        'name': 'channel',
+        'pull': [true]
+      },
+      'animation': 100
+    });
+
+    // 提交按钮事件
+    $('button#save').on('click', function (e) {
+      e.preventDefault();
+      // 获取排序后频道uuid
+      var uuid = [];
+      $('ul#channel li').each(function () {
+        uuid.push(this.id);
+      });
+
+      var data = {'uuid': uuid};
+      //console.log(data);
+
+      // 数据提交后端
+      form_ajax_submit(data, '/api/channel/sort', 'PUT');
+    });
+
+  })
+</script>

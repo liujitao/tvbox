@@ -1,0 +1,210 @@
+<div class="modal-body">
+  <div class="x_panel">
+    <div>
+      <h3>变更</h3>
+    </div>
+    <div class="ln_solid"></div>
+    <form class="form-horizontal form-label-left" id="main">
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="code">uuid</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <input class="form-control" type="text" id="uuid" name="uuid" disabled="disabled">
+        </div>
+      </div>
+
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="code">代码</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <input class="form-control" type="text" id="code" name="code">
+        </div>
+      </div>
+
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="cname">中文名称</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <input class="form-control" type="text" id="cname" name="cname">
+        </div>
+      </div>
+
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="alias">别名</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <input class="form-control" type="text" id="alias" name="alias">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12">码流</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="iphone" id="rate" name="rate"><span class="label label-success">iphone (256000)</span>
+            <label>
+              <input type="checkbox" value="ipad" id="rate" name="rate"><span class="label label-success">ipad (512000)</span> 
+            </label>
+            <label>
+              <input type="checkbox" value="iptv" id="rate" name="rate" checked="checked"><span class="label label-success">iptv (800000)</span> 
+            </label>
+            <label>
+              <input type="checkbox" value="ipsd" id="rate" name="rate"><span class="label label-success">ipsd (1500000)</span> 
+            </label>
+            <label>
+              <input type="checkbox" value="ipxd" id="rate" name="rate"><span class="label label-success">ipxd (3000000)</span> 
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="domain">域名</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <input class="form-control" type="text" id="domain" name="domain">
+        </div>
+      </div>
+
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="speed_test_url">测速地址</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <input class="form-control" type="text" id="speed_test_url" name="speed_test_url">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12">直播区域</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <select class="form-control" id="continent" name="continent"></select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12">状态</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <div class="radio">
+            <label>
+              <input type="radio" name="status" value="0">
+              <span class="label label-danger">禁用</span>
+            </label>
+            <label>
+              <input type="radio" name="status" value="1">
+              <span class="label label-success">启用</label>
+            <label>
+          </div>
+        </div>
+      </div>
+
+      <div class="ln_solid"></div>
+
+      <div class="col-md-3 col-sm-3 col-xs-3 col-md-offset-3">
+        <button type="button" class="btn btn-sm btn-default btn-block" data-dismiss="modal">
+          <i class="glyphicon glyphicon-off"></i>
+        </button>
+      </div>
+
+      <div class="col-md-3 col-sm-3 col-xs-3">
+        <button type="button" class="btn btn-sm btn-info btn-block" id="save">
+          <i class="glyphicon glyphicon-floppy-disk"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  $(function () {
+    // 选择框初始化
+    var select_continent = $('select#continent').select2({
+      'language': 'zh-CN',
+      'width': '100%',
+      'placeholder': '请选择',
+      'allowClear': true,
+      'minimumResultsForSearch': -1, // 禁止搜索
+      'multiple': true, // 多选 
+      'ajax': {
+        'url': '/select/continent',
+        'dataType': 'json',
+        'data': function (params) {
+          return {
+            'search': params.term // 用search替代默认请求参数q
+          }
+        },
+        'processResults': function (data, params) {
+          return {
+            'results': data,
+          }
+        },
+        'cache': true
+      }
+    });
+
+    // 表单验证
+    // 参考 https://github.com/victorjonsson/jQuery-Form-Validator/issues/547
+    select_continent.change(function () {
+      select_continent.validate({
+        'validateHiddenInputs': true
+      });
+    });
+
+    var config = {
+      'form': '#main',
+      'language': myLanguage,
+      'validate': {
+        'code': {
+          'validation': 'required',
+        },
+        'cname': {
+          'validation': 'required',
+        },
+        'alias': {
+          'validation': 'required',
+        },
+        'rate': {
+          'validation': 'checkbox_group',
+          'qty': 'min1'
+        },
+        'domain': {
+          'validation': 'required',
+        },
+        'speed_test_url': {
+          'validation': 'required',
+        },
+      },
+    };
+
+    $.validate({
+      'modules': 'jsconf',
+      'onModulesLoaded': function () {
+        $.setupValidation(config);
+      }
+    });
+
+    // 提交按钮事件
+    $('button#save').on('click', function (e) {
+      e.preventDefault();
+      if ($('#main').isValid(myLanguage)) {
+        // 获取更新值
+        var rate = [];
+        $('input:checkbox:checked[name=rate]').each(function () {
+          rate.push($(this).val());
+        });
+
+        var data = {
+          'uuid': $('#uuid').val(),
+          'code': $('#code').val(),
+          'cname': $('#cname').val(),
+          'alias': $('#alias').val(),
+          'rate': rate.join(','),
+          'domain': $('#domain').val(),
+          'speed_test_url': $('#speed_test_url').val(),
+          'continent': $('#continent').val(),
+          'status': $('input:radio:checked[name=status]').val()
+        };
+
+        // 数据提交后端
+        form_ajax_submit(data, '/api/live_node', 'PUT');
+      } else {
+        console.log('表单验证无效');
+      }
+    });
+
+  })
+</script>

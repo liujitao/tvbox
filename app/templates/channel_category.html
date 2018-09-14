@@ -1,0 +1,342 @@
+{% extends "base.html" %} {% block page_content %}
+
+<div class="right_col" role="main">
+  <!-- 消息框 -->
+  <div class="row" id="message" hidden="hidden">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel" style="text-align:center"></div>
+    </div>
+  </div>
+
+  <!-- 表格 -->
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <table id="table" class="table table-striped table-bordered table-hover nowrap display compact" cellspacing="0" width="100%">
+          <thead>
+            <tr>
+              <th>
+                <input type="checkbox" id="check_all">
+              </th>
+              <th>uuid</th>
+              <th>排序号</th>
+              <th>代码</th>
+              <th>中文名称(简)</th>
+              <th>中文名称(繁)</th>
+              <th>频道</th>
+              <th>建立时间</th>
+              <th>更新时间</th>
+              <th>状态</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function () {
+    // modal默认刷新
+    $('body').on('hidden.bs.modal', '.modal', function () {
+      $(this).removeData('bs.modal');
+
+      // datatables重绘
+      table.ajax.reload(null, false);
+    });
+
+    var table = $('#table').DataTable({
+      'processing': true,
+      'serverSide': true,
+      'ajax': function (data, callback, settings) {
+        //封装请求参数
+        //console.log(data);
+        var param = {};
+        param.draw = data.draw;
+        param.start = data.start;
+        param.length = data.length;
+        param.search = data.search['value'];
+        param.order = data.order[0]['dir'];
+        order_index = data.order[0]['column'];
+        param.order_name = data.columns[order_index]['data'];
+        //console.log(param);
+
+        //ajax请求数据
+        $.ajax({
+          'type': 'GET',
+          'url': '/api/channel_category/list',
+          'cache': false, //禁用缓存
+          'data': param, //传入组装的参数
+          'dataType': 'json',
+          'success': function (result) {
+            //console.log(result);
+            callback(result);
+          }
+        });
+      },
+
+      // 默认排序，序号参照column，由0开始
+      'order': [
+        [2, 'asc']
+      ],
+
+      // 定义列名
+      'columns': [{
+        'data': null,
+        'visible': true,
+        'orderable': false,
+        'searchable': false,
+        'render': function (data, type, row) {
+          return '<input type="checkbox" id="check">'
+        }
+      },
+      {
+        'data': 'uuid',
+        'visible': false,
+        'orderable': false,
+        'searchable': false
+      },
+      {
+        'data': 'sort_id',
+        'visible': true,
+        'orderable': true,
+        'searchable': false,
+      },
+      {
+        'data': 'name',
+        'visible': true,
+        'orderable': true,
+        'searchable': false,
+      },
+      {
+        'data': 'cname',
+        'visible': true,
+        'orderable': true,
+        'searchable': false,
+      },
+      {
+        'data': 'tname',
+        'visible': true,
+        'orderable': false,
+        'searchable': false
+      },
+      {
+        'data': 'channel',
+        'visible': true,
+        'orderable': false,
+        'searchable': false,
+        'render': function (data, type, row) {
+          return format_number(data);
+        }
+      },
+      {
+        'data': 'create_time',
+        'visible': false,
+        'orderable': false,
+        'searchable': false,
+        'render': function (data, type, row) {
+          return format_time(data);
+        }
+      },
+      {
+        'data': 'update_time',
+        'visible': false,
+        'orderable': false,
+        'searchable': false,
+        'render': function (data, type, row) {
+          return format_time(data);
+        }
+      },
+      {
+        'data': 'status',
+        'visible': true,
+        'orderable': false,
+        'searchable': false,
+        'render': function (data, type, row) {
+          return format_status(data);
+        }
+      },
+      {
+        'data': null,
+        'visible': true,
+        'orderable': false,
+        'searchable': false,
+        'render': function (data, type, row) {
+          return '<a href="#" id="RowShow"><i class="fa fa-eye"></i></a> ' +
+            '<a href="#" id="RowEdit"><i class="fa fa-edit"></i></a> ' +
+            '<a href="#" id="RowDelete"><i class="fa fa-trash-o"></i></a>';
+        }
+      }
+      ],
+
+      // 定义列属性
+      'columnDefs': [],
+
+      // 禁止搜索
+      'searching': false,
+
+      // 增加表头按钮
+      'dom': '<"toolbar"f>rtip',
+      'initComplete': function () {
+        $("div.toolbar").append(
+          '<button id="RowAdd" class="col-md-1 btn btn-default btn-sm"><i class="fa fa-file-o"></i></button>' +
+          '<button id="SelectDelete" class="col-md-1 btn btn-warning btn-sm" disabled="disabled"><i class="fa fa-trash-o"></i></button>'
+        );
+      },
+    });
+
+    // 新建行记录
+    $('body').on('click', 'button#RowAdd', function () {
+      // 调用modal框
+      $('.modal-content').load('/modal/channel_category/add', function () { });
+
+      // 显示modal框
+      $('#myModal').modal({'backdrop': 'static', 'keyboard': false}, 'show');
+    });
+
+    // 多行选择
+    $('table thead').on('click', '#check_all', function () {
+      $('table').find('tbody :checkbox').prop('checked', this.checked).closest('tr').toggleClass('selected',
+        this.checked);
+
+      // 删除按钮启禁用
+      $('#SelectDelete').prop('disabled', $(this).prop('checked') ? false : true);
+    });
+
+    // 单行选择
+    $('table tbody').on('click', '#check', function () {
+      $(this).prop('checked', this.checked).closest('tr').toggleClass('selected', this.checked);
+
+      // 删除按钮启禁用
+      $('#SelectDelete').prop('disabled', $(this).closest('tbody').find('input:checkbox:checked').length === 0 ?
+        true : false);
+    });
+
+    // 删除已选行记录
+    $('body').on('click', 'button#SelectDelete', function () {
+      // 取所选行值
+      var current_row = table.rows('.selected');
+      var uuid = [];
+      var message = [];
+
+      $.each(current_row.data(), function (idx, val) {
+        uuid.push(val.uuid);
+        message.push(val.cname);
+      });
+
+      // 调用modal框
+      $('.modal-content').load('/modal/channel_category/delete', function () {
+        // 删除框提示信息
+        $('div#info').append('<h4>确认删除频道分类 [' + message.join(', ') + '] ?</h4>');
+
+        // 按钮提交事件
+        $('button#save').on('click', function (e) {
+          e.preventDefault();
+          var data = {
+            'uuid': uuid
+          }
+
+          // 数据提交后端处理
+          form_ajax_submit(data, '/api/channel_category', 'DELETE');
+        });
+      });
+
+      // 显示modal框
+      $('#myModal').modal({'backdrop': 'static', 'keyboard': false}, 'show');
+    });
+
+    // 删除行记录
+    $('table tbody').on('click', 'a#RowDelete', function () {
+      // 取当前行值
+      var current_row = $(this).closest('tr');
+      var message = table.row(current_row).data().cname;
+      var uuid = [];
+      uuid.push(table.row(current_row).data().uuid);
+
+      // 调用modal框
+      $('.modal-content').load('/modal/channel_category/delete', function () {
+        // 删除框提示信息
+        $('div#info').append('<h4>确认删除频道分类 [' + message + '] ?</h4>');
+
+        // 按钮提交事件
+        $('button#save').on('click', function (e) {
+          e.preventDefault();
+          var data = {
+            'uuid': uuid
+          }
+
+          // 数据提交后端处理
+          form_ajax_submit(data, '/api/channel_category', 'DELETE');
+        });
+      });
+
+      // 显示modal框
+      $('#myModal').modal({'backdrop': 'static', 'keyboard': false}, 'show');
+    });
+
+    // 显示行记录
+    $('table tbody').on('click', 'a#RowShow', function () {
+      // 取当前行值
+      var current_row = $(this).closest('tr');
+      var d = table.row(current_row).data();
+
+      // 调用modal框
+      $('.modal-content').load('/modal/channel_category/show', function () {
+        $('#uuid').html(d.uuid);
+        $('#name').html(d.name);
+        $('#cname').html(d.cname);
+        $('#tname').html(d.tname);
+        $('#channel').html(format_string(d.channel));
+        $('#sort_id').html(d.sort_id);
+        $('#status').html(format_status(d.status));
+        $('#create_time').html(format_time(d.create_time));
+        $('#update_time').html(format_time(d.update_time));
+      });
+
+      // 显示modal框
+      $('#myModal').modal('show');
+    });
+
+    // 编辑行记录
+    $('table tbody').on('click', 'a#RowEdit', function () {
+      // 取当前行值
+      var current_row = $(this).closest('tr');
+      var uuid = table.row(current_row).data().uuid;
+
+      // 调用modal框
+      $('.modal-content').load('/modal/channel_category/edit', function () {
+        // 后台获取当前行所有数据
+        $.ajax({
+          'type': 'GET',
+          'url': '/api/channel_category?uuid=' + uuid,
+          'async': false,
+          'dataType': 'json',
+          'contentType': 'application/json; charset=utf-8',
+          'success': function (d) {
+            // 原值预显
+            $('#uuid').val(d.uuid);
+            $('#name').val(d.name);
+            $('#cname').val(d.cname);
+            $('#tname').val(d.tname);
+            $('#sort_id').val(d.sort_id);
+
+            // 频道
+            if (d.channel_uuid !== null) {
+              $.each(d.channel_uuid.split(','), function (i, v) {
+                $('input:checkbox[name="channel"][value="' + v + '"]').prop('checked', true);
+              });
+            }
+
+            // 状态
+            $('input:radio[name="status"][value="' + d.status + '"]').prop('checked', 'checked');
+          }
+        });
+      });
+
+      // 显示modal框
+      $('#myModal').modal({'backdrop': 'static', 'keyboard': false}, 'show');
+    });
+
+  });
+</script> {% endblock %}

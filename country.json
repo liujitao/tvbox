@@ -1,0 +1,1495 @@
+[{
+        "country_code": "AO",
+        "country_name": "Angola",
+        "country_cname": "\u5b89\u54e5\u62c9",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "BF",
+        "country_name": "Burkina",
+        "country_cname": "\u5e03\u57fa\u7eb3\u6cd5\u7d22",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "BI",
+        "country_name": "Burundi",
+        "country_cname": "\u5e03\u9686\u8fea",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "BJ",
+        "country_name": "Benin",
+        "country_cname": "\u8d1d\u5b81",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "BW",
+        "country_name": "Botswana",
+        "country_cname": "\u535a\u8328\u74e6\u7eb3",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "CD",
+        "country_name": "Democratic Republic of the Congo",
+        "country_cname": "\u521a\u679c(\u91d1)",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "CF",
+        "country_name": "Central African Republic",
+        "country_cname": "\u4e2d\u975e",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "CG",
+        "country_name": "Republic of the Congo",
+        "country_cname": "\u521a\u679c(\u5e03)",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "CI",
+        "country_name": "Cote d'Ivoire",
+        "country_cname": "\u79d1\u7279\u8fea\u74e6",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "CM",
+        "country_name": "Cameroon",
+        "country_cname": "\u5580\u9ea6\u9686",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "CV",
+        "country_name": "Cape Verde",
+        "country_cname": "\u4f5b\u5f97\u89d2",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "DJ",
+        "country_name": "Djibouti",
+        "country_cname": "\u5409\u5e03\u63d0",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "DZ",
+        "country_name": "Algeria",
+        "country_cname": "\u963f\u5c14\u53ca\u5229\u4e9a",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "EG",
+        "country_name": "Egypt",
+        "country_cname": "\u57c3\u53ca",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "EH",
+        "country_name": "Western Sahara",
+        "country_cname": "\u897f\u6492\u54c8\u62c9",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "ER",
+        "country_name": "Eritrea",
+        "country_cname": "\u5384\u7acb\u7279\u91cc\u4e9a",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "ET",
+        "country_name": "Ethiopia",
+        "country_cname": "\u57c3\u585e\u4fc4\u6bd4\u4e9a",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "GA",
+        "country_name": "Gabon",
+        "country_cname": "\u52a0\u84ec",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "GH",
+        "country_name": "Ghana",
+        "country_cname": "\u52a0\u7eb3",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "GM",
+        "country_name": "Gambia",
+        "country_cname": "\u5188\u6bd4\u4e9a",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "GN",
+        "country_name": "Guinea",
+        "country_cname": "\u51e0\u5185\u4e9a",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "GQ",
+        "country_name": "Equatorial Guinea",
+        "country_cname": "\u8d64\u9053\u51e0\u5185\u4e9a",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "GW",
+        "country_name": "Guinea-Bissau",
+        "country_cname": "\u51e0\u5185\u4e9a\u6bd4\u7ecd",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "IO",
+        "country_name": "British Indian Ocean Territory",
+        "country_cname": "\u82f1\u5c5e\u5370\u5ea6\u6d0b\u9886\u5730",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "KE",
+        "country_name": "Kenya",
+        "country_cname": "\u80af\u5c3c\u4e9a",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "KM",
+        "country_name": "The Comoros",
+        "country_cname": "\u79d1\u6469\u7f57",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "LR",
+        "country_name": "Liberia",
+        "country_cname": "\u5229\u6bd4\u91cc\u4e9a",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "LS",
+        "country_name": "Lesotho",
+        "country_cname": "\u83b1\u7d22\u6258",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "LY",
+        "country_name": "Libya",
+        "country_cname": "\u5229\u6bd4\u4e9a",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "MA",
+        "country_name": "Morocco",
+        "country_cname": "\u6469\u6d1b\u54e5",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "MG",
+        "country_name": "Madagascar",
+        "country_cname": "\u9a6c\u8fbe\u52a0\u65af\u52a0",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "ML",
+        "country_name": "Mali",
+        "country_cname": "\u9a6c\u91cc",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "MR",
+        "country_name": "Mauritania",
+        "country_cname": "\u6bdb\u91cc\u5854\u5c3c\u4e9a",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "MU",
+        "country_name": "Mauritius",
+        "country_cname": "\u6bdb\u91cc\u6c42\u65af",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "MW",
+        "country_name": "Malawi",
+        "country_cname": "\u9a6c\u62c9\u7ef4",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "MZ",
+        "country_name": "Mozambique",
+        "country_cname": "\u83ab\u6851\u6bd4\u514b",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "NA",
+        "country_name": "Namibia",
+        "country_cname": "\u7eb3\u7c73\u6bd4\u4e9a",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "NE",
+        "country_name": "Niger",
+        "country_cname": "\u5c3c\u65e5\u5c14",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "NG",
+        "country_name": "Nigeria",
+        "country_cname": "\u5c3c\u65e5\u5229\u4e9a",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "RE",
+        "country_name": "R\u00e9union",
+        "country_cname": "\u7559\u5c3c\u6c6a",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "RW",
+        "country_name": "Rwanda",
+        "country_cname": "\u5362\u65fa\u8fbe",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "SC",
+        "country_name": "Seychelles",
+        "country_cname": "\u585e\u820c\u5c14",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "SD",
+        "country_name": "Sudan",
+        "country_cname": "\u82cf\u4e39",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "SH",
+        "country_name": "St. Helena & Dependencies",
+        "country_cname": "\u5723\u8d6b\u52d2\u62ff",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "SL",
+        "country_name": "Sierra Leone",
+        "country_cname": "\u585e\u62c9\u5229\u6602",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "SN",
+        "country_name": "Senegal",
+        "country_cname": "\u585e\u5185\u52a0\u5c14",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "SO",
+        "country_name": "Somalia",
+        "country_cname": "\u7d22\u9a6c\u91cc",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "SS",
+        "country_name": "South Sudan",
+        "country_cname": "\u5357\u82cf\u4e39",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "ST",
+        "country_name": "Sao Tome & Principe",
+        "country_cname": "\u5723\u591a\u7f8e\u548c\u666e\u6797\u897f\u6bd4",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "SZ",
+        "country_name": "Swaziland",
+        "country_cname": "\u65af\u5a01\u58eb\u5170",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "TD",
+        "country_name": "Chad",
+        "country_cname": "\u4e4d\u5f97",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "TG",
+        "country_name": "Togo",
+        "country_cname": "\u591a\u54e5",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "TN",
+        "country_name": "Tunisia",
+        "country_cname": "\u7a81\u5c3c\u65af",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "TZ",
+        "country_name": "Tanzania",
+        "country_cname": "\u5766\u6851\u5c3c\u4e9a",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "UG",
+        "country_name": "Uganda",
+        "country_cname": "\u4e4c\u5e72\u8fbe",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "YT",
+        "country_name": "Mayotte",
+        "country_cname": "\u9a6c\u7ea6\u7279",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "ZA",
+        "country_name": "South Africa",
+        "country_cname": "\u5357\u975e",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "ZM",
+        "country_name": "Zambia",
+        "country_cname": "\u8d5e\u6bd4\u4e9a",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "ZW",
+        "country_name": "Zimbabwe",
+        "country_cname": "\u6d25\u5df4\u5e03\u97e6",
+        "continent_code": "AF"
+    },
+    {
+        "country_code": "AQ",
+        "country_name": "Antarctica",
+        "country_cname": "\u5357\u6781\u6d32",
+        "continent_code": "AN"
+    },
+    {
+        "country_code": "BV",
+        "country_name": "Bouvet Island",
+        "country_cname": "\u5e03\u97e6\u5c9b",
+        "continent_code": "AN"
+    },
+    {
+        "country_code": "GS",
+        "country_name": "South Georgia & the South Sandwich Islan",
+        "country_cname": "\u5357\u4e54\u6cbb\u4e9a\u5c9b\u548c\u5357\u6851\u5a01\u5947\u7fa4\u5c9b",
+        "continent_code": "AN"
+    },
+    {
+        "country_code": "HM",
+        "country_name": "Heard Island & McDonald Islands",
+        "country_cname": "\u8d6b\u5fb7\u5c9b\u548c\u9ea6\u514b\u5510\u7eb3\u7fa4\u5c9b",
+        "continent_code": "AN"
+    },
+    {
+        "country_code": "TF",
+        "country_name": "French Southern Territories",
+        "country_cname": "\u6cd5\u5c5e\u5357\u90e8\u9886\u5730",
+        "continent_code": "AN"
+    },
+    {
+        "country_code": "AE",
+        "country_name": "United Arab Emirates",
+        "country_cname": "\u963f\u8054\u914b",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "AF",
+        "country_name": "Afghanistan",
+        "country_cname": "\u963f\u5bcc\u6c57",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "AM",
+        "country_name": "Armenia",
+        "country_cname": "\u4e9a\u7f8e\u5c3c\u4e9a",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "AR",
+        "country_name": "Argentina",
+        "country_cname": "\u963f\u6839\u5ef7",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "AZ",
+        "country_name": "Azerbaijan",
+        "country_cname": "\u963f\u585e\u62dc\u7586",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "BD",
+        "country_name": "Bangladesh",
+        "country_cname": "\u5b5f\u52a0\u62c9",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "BH",
+        "country_name": "Bahrain",
+        "country_cname": "\u5df4\u6797",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "BN",
+        "country_name": "Brunei",
+        "country_cname": "\u6587\u83b1",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "BT",
+        "country_name": "Bhutan",
+        "country_cname": "\u4e0d\u4e39",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "CC",
+        "country_name": "Cocos (Keeling) Islands",
+        "country_cname": "\u79d1\u79d1\u65af\u7fa4\u5c9b",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "CN",
+        "country_name": "China",
+        "country_cname": "\u4e2d\u56fd",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "CX",
+        "country_name": "Christmas Island",
+        "country_cname": "\u5723\u8bde\u5c9b",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "CY",
+        "country_name": "Cyprus",
+        "country_cname": "\u585e\u6d66\u8def\u65af",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "GE",
+        "country_name": "Georgia",
+        "country_cname": "\u683c\u9c81\u5409\u4e9a",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "HK",
+        "country_name": "Hong Kong",
+        "country_cname": "\u9999\u6e2f",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "ID",
+        "country_name": "Indonesia",
+        "country_cname": "\u5370\u5c3c",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "IL",
+        "country_name": "Israel",
+        "country_cname": "\u4ee5\u8272\u5217",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "IN",
+        "country_name": "India",
+        "country_cname": "\u5370\u5ea6",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "IQ",
+        "country_name": "Iraq",
+        "country_cname": "\u4f0a\u62c9\u514b",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "IR",
+        "country_name": "Iran",
+        "country_cname": "\u4f0a\u6717",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "JO",
+        "country_name": "Jordan",
+        "country_cname": "\u7ea6\u65e6",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "JP",
+        "country_name": "Japan",
+        "country_cname": "\u65e5\u672c",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "KG",
+        "country_name": "Kyrgyzstan",
+        "country_cname": "\u5409\u5c14\u5409\u65af\u65af\u5766",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "KH",
+        "country_name": "Cambodia",
+        "country_cname": "\u67ec\u57d4\u5be8",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "KP",
+        "country_name": "North Korea",
+        "country_cname": "\u671d\u9c9c",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "KR",
+        "country_name": "South Korea",
+        "country_cname": "\u97e9\u56fd",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "KW",
+        "country_name": "Kuwait",
+        "country_cname": "\u79d1\u5a01\u7279",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "KZ",
+        "country_name": "Kazakhstan",
+        "country_cname": "\u54c8\u8428\u514b\u65af\u5766",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "LA",
+        "country_name": "Laos",
+        "country_cname": "\u8001\u631d",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "LB",
+        "country_name": "Lebanon",
+        "country_cname": "\u9ece\u5df4\u5ae9",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "LK",
+        "country_name": "Sri Lanka",
+        "country_cname": "\u65af\u91cc\u5170\u5361",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "MM",
+        "country_name": "Myanmar (Burma)",
+        "country_cname": "\u7f05\u7538",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "MN",
+        "country_name": "Mongolia",
+        "country_cname": "\u8499\u53e4\u56fd",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "MO",
+        "country_name": "Macao",
+        "country_cname": "\u6fb3\u95e8",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "MV",
+        "country_name": "Maldives",
+        "country_cname": "\u9a6c\u5c14\u4ee3\u592b",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "MY",
+        "country_name": "Malaysia",
+        "country_cname": "\u9a6c\u6765\u897f\u4e9a",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "NP",
+        "country_name": "Nepal",
+        "country_cname": "\u5c3c\u6cca\u5c14",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "OM",
+        "country_name": "Oman",
+        "country_cname": "\u963f\u66fc",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "PH",
+        "country_name": "The Philippines",
+        "country_cname": "\u83f2\u5f8b\u5bbe",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "PK",
+        "country_name": "Pakistan",
+        "country_cname": "\u5df4\u57fa\u65af\u5766",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "PS",
+        "country_name": "Palestinian territories",
+        "country_cname": "\u5df4\u52d2\u65af\u5766",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "QA",
+        "country_name": "Qatar",
+        "country_cname": "\u5361\u5854\u5c14",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "SA",
+        "country_name": "Saudi Arabia",
+        "country_cname": "\u6c99\u7279\u963f\u62c9\u4f2f",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "SG",
+        "country_name": "Singapore",
+        "country_cname": "\u65b0\u52a0\u5761",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "SY",
+        "country_name": "Syria",
+        "country_cname": "\u53d9\u5229\u4e9a",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "TH",
+        "country_name": "Thailand",
+        "country_cname": "\u6cf0\u56fd",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "TJ",
+        "country_name": "Tajikistan",
+        "country_cname": "\u5854\u5409\u514b\u65af\u5766",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "TL",
+        "country_name": "Timor-Leste (East Timor)",
+        "country_cname": "\u4e1c\u5e1d\u6c76",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "TM",
+        "country_name": "Turkmenistan",
+        "country_cname": "\u571f\u5e93\u66fc\u65af\u5766",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "TR",
+        "country_name": "Turkey",
+        "country_cname": "\u571f\u8033\u5176",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "TW",
+        "country_name": "Taiwan",
+        "country_cname": "\u53f0\u6e7e",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "UZ",
+        "country_name": "Uzbekistan",
+        "country_cname": "\u4e4c\u5179\u522b\u514b\u65af\u5766",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "VN",
+        "country_name": "Vietnam",
+        "country_cname": "\u8d8a\u5357",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "YE",
+        "country_name": "Yemen",
+        "country_cname": "\u4e5f\u95e8",
+        "continent_code": "AS"
+    },
+    {
+        "country_code": "AD",
+        "country_name": "Andorra",
+        "country_cname": "\u5b89\u9053\u5c14",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "AL",
+        "country_name": "Albania",
+        "country_cname": "\u963f\u5c14\u5df4\u5c3c\u4e9a",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "AT",
+        "country_name": "Austria",
+        "country_cname": "\u5965\u5730\u5229",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "AX",
+        "country_name": "Aland Island",
+        "country_cname": "\u5965\u5170\u7fa4\u5c9b",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "BA",
+        "country_name": "Bosnia & Herzegovina",
+        "country_cname": "\u6ce2\u9ed1",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "BE",
+        "country_name": "Belgium",
+        "country_cname": "\u6bd4\u5229\u65f6",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "BG",
+        "country_name": "Bulgaria",
+        "country_cname": "\u4fdd\u52a0\u5229\u4e9a",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "BY",
+        "country_name": "Belarus",
+        "country_cname": "\u767d\u4fc4\u7f57\u65af",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "CH",
+        "country_name": "Switzerland",
+        "country_cname": "\u745e\u58eb",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "CZ",
+        "country_name": "Czech Republic",
+        "country_cname": "\u6377\u514b",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "DE",
+        "country_name": "Germany",
+        "country_cname": "\u5fb7\u56fd",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "DK",
+        "country_name": "Denmark",
+        "country_cname": "\u4e39\u9ea6",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "EE",
+        "country_name": "Estonia",
+        "country_cname": "\u7231\u6c99\u5c3c\u4e9a",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "ES",
+        "country_name": "Spain",
+        "country_cname": "\u897f\u73ed\u7259",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "FI",
+        "country_name": "Finland",
+        "country_cname": "\u82ac\u5170",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "FO",
+        "country_name": "Faroe Islands",
+        "country_cname": "\u6cd5\u7f57\u7fa4\u5c9b",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "FR",
+        "country_name": "France",
+        "country_cname": "\u6cd5\u56fd",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "GB",
+        "country_name": "Great Britain (United Kingdom \/ England)",
+        "country_cname": "\u82f1\u56fd",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "GG",
+        "country_name": "Guernsey",
+        "country_cname": "\u6839\u897f\u5c9b",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "GI",
+        "country_name": "Gibraltar",
+        "country_cname": "\u76f4\u5e03\u7f57\u9640",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "GR",
+        "country_name": "Greece",
+        "country_cname": "\u5e0c\u814a",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "HR",
+        "country_name": "Croatia",
+        "country_cname": "\u514b\u7f57\u5730\u4e9a",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "HU",
+        "country_name": "Hungary",
+        "country_cname": "\u5308\u7259\u5229",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "IE",
+        "country_name": "Ireland",
+        "country_cname": "\u7231\u5c14\u5170",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "IM",
+        "country_name": "Isle of Man",
+        "country_cname": "\u9a6c\u6069\u5c9b",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "IS",
+        "country_name": "Iceland",
+        "country_cname": "\u51b0\u5c9b",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "IT",
+        "country_name": "Italy",
+        "country_cname": "\u610f\u5927\u5229",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "JE",
+        "country_name": "Jersey",
+        "country_cname": "\u6cfd\u897f\u5c9b",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "LI",
+        "country_name": "Liechtenstein",
+        "country_cname": "\u5217\u652f\u6566\u58eb\u767b",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "LT",
+        "country_name": "Lithuania",
+        "country_cname": "\u7acb\u9676\u5b9b",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "LU",
+        "country_name": "Luxembourg",
+        "country_cname": "\u5362\u68ee\u5821",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "LV",
+        "country_name": "Latvia",
+        "country_cname": "\u62c9\u8131\u7ef4\u4e9a",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "MC",
+        "country_name": "Monaco",
+        "country_cname": "\u6469\u7eb3\u54e5",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "MD",
+        "country_name": "Moldova",
+        "country_cname": "\u6469\u5c14\u591a\u74e6",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "ME",
+        "country_name": "Montenegro",
+        "country_cname": "\u9ed1\u5c71",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "MK",
+        "country_name": "Republic of Macedonia (FYROM)",
+        "country_cname": "\u9a6c\u5176\u987f",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "MT",
+        "country_name": "Malta",
+        "country_cname": "\u9a6c\u8033\u4ed6",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "NL",
+        "country_name": "Netherlands",
+        "country_cname": "\u8377\u5170",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "NO",
+        "country_name": "Norway",
+        "country_cname": "\u632a\u5a01",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "PL",
+        "country_name": "Poland",
+        "country_cname": "\u6ce2\u5170",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "PT",
+        "country_name": "Portugal",
+        "country_cname": "\u8461\u8404\u7259",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "RO",
+        "country_name": "Romania",
+        "country_cname": "\u7f57\u9a6c\u5c3c\u4e9a",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "RS",
+        "country_name": "Serbia",
+        "country_cname": "\u585e\u5c14\u7ef4\u4e9a",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "RU",
+        "country_name": "Russian Federation",
+        "country_cname": "\u4fc4\u7f57\u65af",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "SE",
+        "country_name": "Sweden",
+        "country_cname": "\u745e\u5178",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "SI",
+        "country_name": "Slovenia",
+        "country_cname": "\u65af\u6d1b\u6587\u5c3c\u4e9a",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "SJ",
+        "country_name": "Svalbard & Jan Mayen",
+        "country_cname": "\u65af\u74e6\u5c14\u5df4\u7fa4\u5c9b\u548c\u626c\u9a6c\u5ef6\u5c9b",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "SK",
+        "country_name": "Slovakia",
+        "country_cname": "\u65af\u6d1b\u4f10\u514b",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "SM",
+        "country_name": "San Marino",
+        "country_cname": "\u5723\u9a6c\u529b\u8bfa",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "UA",
+        "country_name": "Ukraine",
+        "country_cname": "\u4e4c\u514b\u5170",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "VA",
+        "country_name": "Vatican City (The Holy See)",
+        "country_cname": "\u68b5\u8482\u5188",
+        "continent_code": "EU"
+    },
+    {
+        "country_code": "AG",
+        "country_name": "Antigua & Barbuda",
+        "country_cname": "\u5b89\u63d0\u74dc\u548c\u5df4\u5e03\u8fbe",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "AI",
+        "country_name": "Anguilla",
+        "country_cname": "\u5b89\u572d\u62c9",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "AW",
+        "country_name": "Aruba",
+        "country_cname": "\u963f\u9c81\u5df4",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "BB",
+        "country_name": "Barbados",
+        "country_cname": "\u5df4\u5df4\u591a\u65af",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "BL",
+        "country_name": "Saint Barth\u00e9lemy",
+        "country_cname": "\u5723\u5df4\u6cf0\u52d2\u7c73\u5c9b",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "BM",
+        "country_name": "Bermuda",
+        "country_cname": "\u767e\u6155\u5927",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "BQ",
+        "country_name": "Caribbean Netherlands",
+        "country_cname": "\u8377\u5170\u52a0\u52d2\u6bd4\u533a",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "BS",
+        "country_name": "The Bahamas",
+        "country_cname": "\u5df4\u54c8\u9a6c",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "BZ",
+        "country_name": "Belize",
+        "country_cname": "\u4f2f\u5229\u5179",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "CA",
+        "country_name": "Canada",
+        "country_cname": "\u52a0\u62ff\u5927",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "CR",
+        "country_name": "Costa Rica",
+        "country_cname": "\u54e5\u65af\u8fbe\u9ece\u52a0",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "CU",
+        "country_name": "Cuba",
+        "country_cname": "\u53e4\u5df4",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "CW",
+        "country_name": "Curacao",
+        "country_cname": "\u5e93\u62c9\u7d22",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "DM",
+        "country_name": "Dominica",
+        "country_cname": "\u591a\u7c73\u5c3c\u514b",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "DO",
+        "country_name": "Dominican Republic",
+        "country_cname": "\u591a\u7c73\u5c3c\u52a0",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "GD",
+        "country_name": "Grenada",
+        "country_cname": "\u683c\u6797\u7eb3\u8fbe",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "GL",
+        "country_name": "Greenland",
+        "country_cname": "\u683c\u9675\u5170",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "GP",
+        "country_name": "Guadeloupe",
+        "country_cname": "\u74dc\u5fb7\u7f57\u666e",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "GT",
+        "country_name": "Guatemala",
+        "country_cname": "\u5371\u5730\u9a6c\u62c9",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "HN",
+        "country_name": "Honduras",
+        "country_cname": "\u6d2a\u90fd\u62c9\u65af",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "HT",
+        "country_name": "Haiti",
+        "country_cname": "\u6d77\u5730",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "JM",
+        "country_name": "Jamaica",
+        "country_cname": "\u7259\u4e70\u52a0",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "KN",
+        "country_name": "St. Kitts & Nevis",
+        "country_cname": "\u5723\u57fa\u8328\u548c\u5c3c\u7ef4\u65af",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "KY",
+        "country_name": "Cayman Islands",
+        "country_cname": "\u5f00\u66fc\u7fa4\u5c9b",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "LC",
+        "country_name": "St. Lucia",
+        "country_cname": "\u5723\u5362\u897f\u4e9a",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "MF",
+        "country_name": "Saint Martin (France)",
+        "country_cname": "\u6cd5\u5c5e\u5723\u9a6c\u4e01",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "MQ",
+        "country_name": "Martinique",
+        "country_cname": "\u9a6c\u63d0\u5c3c\u514b",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "MS",
+        "country_name": "Montserrat",
+        "country_cname": "\u8499\u585e\u62c9\u7279\u5c9b",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "MX",
+        "country_name": "Mexico",
+        "country_cname": "\u58a8\u897f\u54e5",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "NI",
+        "country_name": "Nicaragua",
+        "country_cname": "\u5c3c\u52a0\u62c9\u74dc",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "PA",
+        "country_name": "Panama",
+        "country_cname": "\u5df4\u62ff\u9a6c",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "PM",
+        "country_name": "Saint-Pierre & Miquelon",
+        "country_cname": "\u5723\u76ae\u57c3\u5c14\u548c\u5bc6\u514b\u9686",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "PR",
+        "country_name": "Puerto Rico",
+        "country_cname": "\u6ce2\u591a\u9ece\u5404",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "SV",
+        "country_name": "El Salvador",
+        "country_cname": "\u8428\u5c14\u74e6\u591a",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "SX",
+        "country_name": "Sint Maarten",
+        "country_cname": "\u8377\u5c5e\u5723\u9a6c\u4e01",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "TC",
+        "country_name": "Turks & Caicos Islands",
+        "country_cname": "\u7279\u514b\u65af\u548c\u51ef\u79d1\u65af\u7fa4\u5c9b",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "TT",
+        "country_name": "Trinidad & Tobago",
+        "country_cname": "\u7279\u7acb\u5c3c\u8fbe\u548c\u591a\u5df4\u54e5",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "UM",
+        "country_name": "United States Minor Outlying Islands",
+        "country_cname": "\u7f8e\u56fd\u672c\u571f\u5916\u5c0f\u5c9b\u5c7f",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "US",
+        "country_name": "United States of America (USA)",
+        "country_cname": "\u7f8e\u56fd",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "VC",
+        "country_name": "St. Vincent & the Grenadines",
+        "country_cname": "\u5723\u6587\u68ee\u7279\u548c\u683c\u6797\u7eb3\u4e01\u65af",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "VG",
+        "country_name": "British Virgin Islands",
+        "country_cname": "\u82f1\u5c5e\u7ef4\u5c14\u4eac\u7fa4\u5c9b",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "VI",
+        "country_name": "United States Virgin Islands",
+        "country_cname": "\u7f8e\u5c5e\u7ef4\u5c14\u4eac\u7fa4\u5c9b",
+        "continent_code": "NA"
+    },
+    {
+        "country_code": "AS",
+        "country_name": "American Samoa",
+        "country_cname": "\u7f8e\u5c5e\u8428\u6469\u4e9a",
+        "continent_code": "OA"
+    },
+    {
+        "country_code": "AU",
+        "country_name": "Australia",
+        "country_cname": "\u6fb3\u5927\u5229\u4e9a",
+        "continent_code": "OA"
+    },
+    {
+        "country_code": "CK",
+        "country_name": "Cook Islands",
+        "country_cname": "\u5e93\u514b\u7fa4\u5c9b",
+        "continent_code": "OA"
+    },
+    {
+        "country_code": "FJ",
+        "country_name": "Fiji",
+        "country_cname": "\u6590\u6d4e\u7fa4\u5c9b",
+        "continent_code": "OA"
+    },
+    {
+        "country_code": "FM",
+        "country_name": "Federated States of Micronesia",
+        "country_cname": "\u5bc6\u514b\u7f57\u5c3c\u897f\u4e9a\u8054\u90a6",
+        "continent_code": "OA"
+    },
+    {
+        "country_code": "GU",
+        "country_name": "Guam",
+        "country_cname": "\u5173\u5c9b",
+        "continent_code": "OA"
+    },
+    {
+        "country_code": "KI",
+        "country_name": "Kiribati",
+        "country_cname": "\u57fa\u91cc\u5df4\u65af",
+        "continent_code": "OA"
+    },
+    {
+        "country_code": "MH",
+        "country_name": "Marshall islands",
+        "country_cname": "\u9a6c\u7ecd\u5c14\u7fa4\u5c9b",
+        "continent_code": "OA"
+    },
+    {
+        "country_code": "MP",
+        "country_name": "Northern Mariana Islands",
+        "country_cname": "\u5317\u9a6c\u91cc\u4e9a\u7eb3\u7fa4\u5c9b",
+        "continent_code": "OA"
+    },
+    {
+        "country_code": "NC",
+        "country_name": "New Caledonia",
+        "country_cname": "\u65b0\u5580\u91cc\u591a\u5c3c\u4e9a",
+        "continent_code": "OA"
+    },
+    {
+        "country_code": "NF",
+        "country_name": "Norfolk Island",
+        "country_cname": "\u8bfa\u798f\u514b\u5c9b",
+        "continent_code": "OA"
+    },
+    {
+        "country_code": "NR",
+        "country_name": "Nauru",
+        "country_cname": "\u7459\u9c81",
+        "continent_code": "OA"
+    },
+    {
+        "country_code": "NU",
+        "country_name": "Niue",
+        "country_cname": "\u7ebd\u57c3",
+        "continent_code": "OA"
+    },
+    {
+        "country_code": "NZ",
+        "country_name": "New Zealand",
+        "country_cname": "\u65b0\u897f\u5170",
+        "continent_code": "OA"
+    },
+    {
+        "country_code": "PF",
+        "country_name": "French polynesia",
+        "country_cname": "\u6cd5\u5c5e\u6ce2\u5229\u5c3c\u897f\u4e9a",
+        "continent_code": "OA"
+    },
+    {
+        "country_code": "PG",
+        "country_name": "Papua New Guinea",
+        "country_cname": "\u5df4\u5e03\u4e9a\u65b0\u51e0\u5185\u4e9a",
+        "continent_code": "OA"
+    },
+    {
+        "country_code": "PN",
+        "country_name": "Pitcairn Islands",
+        "country_cname": "\u76ae\u7279\u51ef\u6069\u7fa4\u5c9b",
+        "continent_code": "OA"
+    },
+    {
+        "country_code": "PW",
+        "country_name": "Palau",
+        "country_cname": "\u5e15\u52b3",
+        "continent_code": "OA"
+    },
+    {
+        "country_code": "SB",
+        "country_name": "Solomon Islands",
+        "country_cname": "\u6240\u7f57\u95e8\u7fa4\u5c9b",
+        "continent_code": "OA"
+    },
+    {
+        "country_code": "TK",
+        "country_name": "Tokelau",
+        "country_cname": "\u6258\u514b\u52b3",
+        "continent_code": "OA"
+    },
+    {
+        "country_code": "TO",
+        "country_name": "Tonga",
+        "country_cname": "\u6c64\u52a0",
+        "continent_code": "OA"
+    },
+    {
+        "country_code": "TV",
+        "country_name": "Tuvalu",
+        "country_cname": "\u56fe\u74e6\u5362",
+        "continent_code": "OA"
+    },
+    {
+        "country_code": "VU",
+        "country_name": "Vanuatu",
+        "country_cname": "\u74e6\u52aa\u963f\u56fe",
+        "continent_code": "OA"
+    },
+    {
+        "country_code": "WF",
+        "country_name": "Wallis & Futuna",
+        "country_cname": "\u74e6\u5229\u65af\u548c\u5bcc\u56fe\u7eb3",
+        "continent_code": "OA"
+    },
+    {
+        "country_code": "WS",
+        "country_name": "Samoa",
+        "country_cname": "\u8428\u6469\u4e9a",
+        "continent_code": "OA"
+    },
+    {
+        "country_code": "BO",
+        "country_name": "Bolivia",
+        "country_cname": "\u73bb\u5229\u7ef4\u4e9a",
+        "continent_code": "SA"
+    },
+    {
+        "country_code": "BR",
+        "country_name": "Brazil",
+        "country_cname": "\u5df4\u897f",
+        "continent_code": "SA"
+    },
+    {
+        "country_code": "CL",
+        "country_name": "Chile",
+        "country_cname": "\u667a\u5229",
+        "continent_code": "SA"
+    },
+    {
+        "country_code": "CO",
+        "country_name": "Colombia",
+        "country_cname": "\u54e5\u4f26\u6bd4\u4e9a",
+        "continent_code": "SA"
+    },
+    {
+        "country_code": "EC",
+        "country_name": "Ecuador",
+        "country_cname": "\u5384\u74dc\u591a\u5c14",
+        "continent_code": "SA"
+    },
+    {
+        "country_code": "FK",
+        "country_name": "Falkland Islands",
+        "country_cname": "\u9a6c\u5c14\u7ef4\u7eb3\u65af\u7fa4\u5c9b(\u798f\u514b\u5170)",
+        "continent_code": "SA"
+    },
+    {
+        "country_code": "GF",
+        "country_name": "French Guiana",
+        "country_cname": "\u6cd5\u5c5e\u572d\u4e9a\u90a3",
+        "continent_code": "SA"
+    },
+    {
+        "country_code": "GY",
+        "country_name": "Guyana",
+        "country_cname": "\u572d\u4e9a\u90a3",
+        "continent_code": "SA"
+    },
+    {
+        "country_code": "PE",
+        "country_name": "Peru",
+        "country_cname": "\u79d8\u9c81",
+        "continent_code": "SA"
+    },
+    {
+        "country_code": "PY",
+        "country_name": "Paraguay",
+        "country_cname": "\u5df4\u62c9\u572d",
+        "continent_code": "SA"
+    },
+    {
+        "country_code": "SR",
+        "country_name": "Suriname",
+        "country_cname": "\u82cf\u91cc\u5357",
+        "continent_code": "SA"
+    },
+    {
+        "country_code": "UY",
+        "country_name": "Uruguay",
+        "country_cname": "\u4e4c\u62c9\u572d",
+        "continent_code": "SA"
+    },
+    {
+        "country_code": "VE",
+        "country_name": "Venezuela",
+        "country_cname": "\u59d4\u5185\u745e\u62c9",
+        "continent_code": "SA"
+    }
+]

@@ -1,0 +1,88 @@
+<div class="modal-body">
+  <div class="x_panel">
+    <div>
+      <h3>批量生成</h3>
+    </div>
+    <div class="ln_solid"></div>
+    <form class="form-horizontal form-label-left" id="main">
+      <div class="form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12">会员卡类型</label>
+        <div class="col-md-3 col-sm-3 col-xs-12">
+          <select class="form-control" id="category"></select>
+        </div>
+      </div>
+
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="count">会员卡数量</label>
+        <div class="col-md-3 col-sm-3 col-xs-12">
+          <input class="form-control" type="text" id="count" name="count">
+        </div>
+      </div>
+
+      <div class="ln_solid"></div>
+
+      <div class="col-md-3 col-sm-3 col-xs-3 col-md-offset-3">
+        <button type="button" class="btn btn-sm btn-default btn-block" data-dismiss="modal">
+          <i class="glyphicon glyphicon-off"></i>
+        </button>
+      </div>
+
+      <div class="col-md-3 col-sm-3 col-xs-3">
+        <button type="button" class="btn btn-sm btn-info btn-block" id="save">
+          <i class="glyphicon glyphicon-floppy-disk"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  $(function () {
+    // 表单验证
+    /*
+    $('#category').change(function () {
+      $('#category').validate({
+        'validateHiddenInputs': true
+      });
+    });
+    */
+
+    var config = {
+      'form': '#main',
+      'language': myLanguage,
+      'validate': {
+        'category': {
+          'validation': 'required',
+        },
+        'count': {
+          'validation': 'required',
+        },
+      },
+    };
+
+    $.validate({
+      'modules': 'jsconf',
+      'onModulesLoaded': function () {
+        $.setupValidation(config);
+      }
+    });
+
+    // 提交按钮事件
+    $('button#save').on('click', function (e) {
+      e.preventDefault();
+      if ($('#main').isValid(myLanguage)) {
+        // 获取更新值
+        var data = {
+          'category': $('#category').val(),
+          'count': $('#count').val(),
+        };
+
+        // 数据提交后端
+        form_ajax_submit(data, '/api/vip', 'POST');
+      } else {
+        console.log('表单验证无效');
+      }
+    });
+
+  })
+</script>

@@ -1,0 +1,85 @@
+<div class="modal-body">
+  <div class="x_panel">
+    <div>
+      <h3>批量导入</h3>
+    </div>
+    <div class="ln_solid"></div>
+
+    <form class="form-horizontal form-label-left" method="post" enctype="multipart/form-data" id="main">
+      <div class="row">
+        <div class="col-md-2 col-sm-2 col-xs-4">
+          <a class="btn btn-link" href="/static/app_template.csv">模板文件下载</a>
+        </div>
+        <div class="col-md-10 col-sm-10 col-xs-8">
+          <div class="input-group">
+            <input type="file" class="form-control" name="csv">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" id="upload">上传</button>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12" id="content">
+          <textarea id="content" class="form-control" rows="20" style="display:none;"></textarea>
+        </div>
+      </div>
+
+      <div class="ln_solid"></div>
+
+      <div class="col-md-3 col-sm-3 col-xs-3 col-md-offset-3">
+        <button type="button" class="btn btn-sm btn-default btn-block" data-dismiss="modal">
+          <i class="glyphicon glyphicon-off"></i>
+        </button>
+      </div>
+
+      <div class="col-md-3 col-sm-3 col-xs-3">
+        <button type="button" class="btn btn-sm btn-info btn-block" id="save" disabled="disabled">
+          <i class="glyphicon glyphicon-floppy-disk"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  $(function () {
+    // 提交按钮事件
+    $('button#upload').on('click', function (e) {
+      var form_data = new FormData($('form#main')[0]);
+      $.ajax({
+        'type': 'POST',
+        'url': '/api/app/upload',
+        'data': form_data,
+        'contentType': false,
+        'cache': false,
+        'processData': false,
+        'async': true,
+        'success': function (data) {
+          $('textarea#content').show().text(data.data);
+          $('button#save').prop('disabled', false);
+        },
+        'error': function(data){
+
+        }
+      });
+    });
+
+    $('button#save').on('click', function (e) {
+      e.preventDefault();
+      if ($('#main').isValid(myLanguage)) {
+        // 获取更新值
+        var data = {
+          'content': $('textarea#content').text()
+        };
+
+        // 数据提交后端
+        form_ajax_submit(data, '/api/app/import', 'POST');
+      } else {
+        console.log('表单验证无效');
+      }
+    });
+
+  })
+</script>

@@ -1,0 +1,89 @@
+<div class="modal-body">
+  <div class="x_panel">
+    <div>
+      <h3>新建</h3>
+    </div>
+    <div class="ln_solid"></div>
+    <form class="form-horizontal form-label-left" id="main">
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">英文名称</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <input class="form-control" type="text" id="name" name="name">
+        </div>
+      </div>
+
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="phone">中文名称</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <input class="form-control" type="text" id="cname" name="cname">
+        </div>
+      </div>
+
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="logo_url">logo下载地址</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <input class="form-control" type="text" id="logo_url" name="logo_url">
+        </div>
+      </div>
+
+      <div class="ln_solid"></div>
+
+      <div class="col-md-3 col-sm-3 col-xs-3 col-md-offset-3">
+        <button type="button" class="btn btn-sm btn-default btn-block" data-dismiss="modal">
+          <i class="glyphicon glyphicon-off"></i>
+        </button>
+      </div>
+
+      <div class="col-md-3 col-sm-3 col-xs-3">
+        <button type="button" class="btn btn-sm btn-info btn-block" id="save">
+          <i class="glyphicon glyphicon-floppy-disk"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  $(function () {
+    var config = {
+      'form': '#main',
+      'language': myLanguage,
+      'validate': {
+        'name': {
+          'validation': 'required',
+        },
+        'cname': {
+          'validation': 'required',
+        },
+        'logo_url': {
+          'validation': 'required',
+        },
+      },
+    };
+
+    $.validate({
+      'modules': 'jsconf',
+      'onModulesLoaded': function () {
+        $.setupValidation(config);
+      }
+    });
+
+    // 提交按钮事件
+    $('button#save').on('click', function (e) {
+      e.preventDefault();
+      if ($('#main').isValid(myLanguage)) {
+        var data = {
+          'name': $('#name').val(),
+          'cname': $('#cname').val(),
+          'logo_url': $('#logo_url').val()
+        };
+
+        // 数据提交后端
+        form_ajax_submit(data, '/api/partner', 'POST');
+      } else {
+        console.log('表单验证无效');
+      }
+    });
+
+  })
+</script>

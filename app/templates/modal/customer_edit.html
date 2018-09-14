@@ -1,0 +1,153 @@
+<div class="modal-body">
+  <div class="x_panel">
+    <div>
+      <h3>变更</h3>
+    </div>
+    <div class="ln_solid"></div>
+    <form class="form-horizontal form-label-left" id="main">
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="uuid">uuid</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <input class="form-control" type="text" id="uuid" name="uuid" disabled="disabled">
+        </div>
+      </div>
+
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">姓名</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <input class="form-control" type="text" id="name" name="name">
+        </div>
+      </div>
+
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="phone">联系电话</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <input class="form-control" type="text" id="phone" name="phone">
+        </div>
+      </div>
+
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="mail">电子邮件</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <input class="form-control" type="text" id="mail" name="mail">
+        </div>
+      </div>
+
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="address">地址</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <input class="form-control" type="text" id="address" name="address">
+        </div>
+      </div>
+
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="description">备注</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <input class="form-control" type="text" id="description" name="description">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12">购买机顶盒</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <select class="form-control" id="stb" name="stb"></select>
+        </div>
+      </div>
+
+      <div class="ln_solid"></div>
+
+      <div class="col-md-3 col-sm-3 col-xs-3 col-md-offset-3">
+        <button type="button" class="btn btn-sm btn-default btn-block" data-dismiss="modal">
+          <i class="glyphicon glyphicon-off"></i>
+        </button>
+      </div>
+
+      <div class="col-md-3 col-sm-3 col-xs-3">
+        <button type="button" class="btn btn-sm btn-info btn-block" id="save">
+          <i class="glyphicon glyphicon-floppy-disk"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  $(function () {
+    // 选择框初始化
+    var select_stb = $('select#stb').select2({
+      'language': 'zh-CN',
+      'width': '100%',
+      'placeholder': '请选择',
+      'allowClear': true,
+      // 'minimumResultsForSearch': -1, // 禁止搜索
+      'multiple': true, // 多选 
+      'ajax': {
+        'url': '/select/tvbox',
+        'dataType': 'json',
+        'data': function (params) {
+          return {
+            'search': params.term,
+            'category': 'customer'  // 未关联客户
+          }
+        },
+        'processResults': function (data, params) {
+          return {
+            'results': data,
+          }
+        },
+        'cache': true
+      }
+    });
+
+    var config = {
+      'form': '#main',
+      'language': myLanguage,
+      'validate': {
+        'name': {
+          'validation': 'required',
+        },
+        'phone': {
+          'validation': 'required',
+        },
+        'mail': {
+          'validation': 'required',
+        }
+      },
+    };
+
+    $.validate({
+      'modules': 'jsconf',
+      'onModulesLoaded': function () {
+        $.setupValidation(config);
+      }
+    });
+
+    // 提交按钮事件
+    $('button#save').on('click', function (e) {
+      e.preventDefault();
+      if ($('#main').isValid(myLanguage)) {
+        // 获取更新值
+        var stb = [];
+        $('#stb option:selected').each(function (i, v) {
+          stb.push($(this).text()); // 电视盒sn
+        });
+
+        var data = {
+          'uuid': $('#uuid').val(),
+          'name': $('#name').val(),
+          'phone': $('#phone').val(),
+          'mail': $('#mail').val(),
+          'address': $('#address').val(),
+          'description': $('#description').val(),
+          'stb': stb
+        };
+
+        // 数据提交后端
+        form_ajax_submit(data, '/api/customer', 'PUT');
+      } else {
+        console.log('表单验证无效');
+      }
+    });
+
+  })
+</script>

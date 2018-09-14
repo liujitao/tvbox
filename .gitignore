@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.idea
+*.log
+venv
+.venv
+.vscode
+*.pyc
+*.apk
+logs/suntv.log*
+basefunc
+app/api1_0
+app/static/*

@@ -1,0 +1,265 @@
+<div class="modal-body">
+  <div class="x_panel">
+    <div>
+      <h3>变更</h3>
+    </div>
+    <div class="ln_solid"></div>
+    <form class="form-horizontal form-label-left" id="main">
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="uuid">uuid</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <input class="form-control" type="text" id="uuid" name="uuid" disabled="disabled">
+        </div>
+      </div>
+
+      <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="sn">sn</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <input class="form-control" type="text" id="sn" name="sn">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12">购买人</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <select class="form-control" id="customer" name="customer"></select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12">产品包</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <select class="form-control" id="product" name="product"></select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12">合作商</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <select class="form-control" id="partner" name="partner"></select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12">分组</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <select class="form-control" id="grouping" name="grouping"></select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12">直播节点</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <select class="form-control" id="live_node" name="live_node"></select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12">状态</label>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <div class="radio">
+            <label>
+              <input type="radio" name="status" value="0" checked="checked">
+              <span class="label label-default">未开通</span>
+            </label>
+            <label>
+              <input type="radio" name="status" value="1">
+              <span class="label label-success">已开通</label>
+            <label>
+              <input type="radio" name="status" value="2">
+              <span class="label label-danger">已停用</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="ln_solid"></div>
+
+      <div class="col-md-3 col-sm-3 col-xs-3 col-md-offset-3">
+        <button type="button" class="btn btn-sm btn-default btn-block" data-dismiss="modal">
+          <i class="glyphicon glyphicon-off"></i>
+      </div>
+
+      <div class="col-md-3 col-sm-3 col-xs-3">
+        <button type="button" class="btn btn-sm btn-info btn-block" id="save">
+          <i class="glyphicon glyphicon-floppy-disk"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  $(function () {
+    // 选择框初始化
+    var select_customer = $('select#customer').select2({
+      'language': 'zh-CN',
+      'width': '30%',
+      'placeholder': '请选择',
+      'allowClear': true,
+      'ajax': {
+        'url': '/select/customer',
+        'dataType': 'json',
+        'data': function (params) {
+          return {
+            'search': params.term // 用search替代默认请求参数q
+          }
+        },
+        'processResults': function (data, params) {
+          return {
+            'results': data,
+          }
+        },
+        'cache': true
+      }
+    });
+
+    var select_product = $('select#product').select2({
+      'language': 'zh-CN',
+      'width': '100%',
+      'placeholder': '请选择',
+      'allowClear': true,
+      'minimumResultsForSearch': -1, // 禁止搜索
+      'multiple': true, // 多选 
+      'ajax': {
+        'url': '/select/product',
+        'dataType': 'json',
+        'data': function (params) {
+          return {
+            'search': params.term
+          }
+        },
+        'processResults': function (data, params) {
+          return {
+            'results': data,
+          }
+        },
+        'cache': true
+      }
+    });
+
+    var select_partner = $('select#partner').select2({
+      'language': 'zh-CN',
+      'width': '30%',
+      'placeholder': '请选择',
+      'allowClear': true,
+      'ajax': {
+        'url': '/select/partner',
+        'dataType': 'json',
+        'data': function (params) {
+          return {
+            'search': params.term // 用search替代默认请求参数q
+          }
+        },
+        'processResults': function (data, params) {
+          return {
+            'results': data,
+          }
+        },
+        'cache': true
+      }
+    });
+
+    var select_grouping = $('select#grouping').select2({
+      'language': 'zh-CN',
+      'width': '30%',
+      'placeholder': '请选择',
+      'allowClear': true,
+      'ajax': {
+        'url': '/select/grouping',
+        'dataType': 'json',
+        'data': function (params) {
+          return {
+            'search': params.term // 用search替代默认请求参数q
+          }
+        },
+        'processResults': function (data, params) {
+          return {
+            'results': data,
+          }
+        },
+        'cache': true
+      }
+    });
+
+    var select_live_node = $('select#live_node').select2({
+      'language': 'zh-CN',
+      'width': '30%',
+      'placeholder': '请选择',
+      'allowClear': true,
+      'ajax': {
+        'url': '/select/live_node',
+        'dataType': 'json',
+        'data': function (params) {
+          return {
+            'search': params.term // 用search替代默认请求参数q
+          }
+        },
+        'processResults': function (data, params) {
+          return {
+            'results': data,
+          }
+        },
+        'cache': true
+      }
+    });
+
+
+    // 表单验证
+    // 参考 https://github.com/victorjonsson/jQuery-Form-Validator/issues/547
+    /*select_model.change(function () {
+      select_model.validate({
+        'validateHiddenInputs': true
+      });
+    });*/
+
+    select_product.change(function () {
+      select_product.validate({
+        'validateHiddenInputs': true
+      });
+    });
+
+    var config = {
+      'form': '#main',
+      'language': myLanguage,
+      'validate': {
+        'sn': {
+          'validation': 'required',
+        },
+        'product': {
+          'validation': 'required',
+        },
+      },
+    };
+
+    $.validate({
+      'modules': 'jsconf',
+      'onModulesLoaded': function () {
+        $.setupValidation(config);
+      }
+    });
+
+    // 提交按钮事件
+    $('button#save').on('click', function (e) {
+      e.preventDefault();
+      if ($('#main').isValid(myLanguage)) {
+        // 获取更新值
+        var data = {
+          'uuid': $('#uuid').val(),
+          'sn': $('#sn').val(),
+          'customer': $('#customer').val(),
+          'product': $('#product').val(),
+          'partner': $('#partner').val(),
+          'grouping': $('#grouping').val(),
+          'live_node': $('#live_node').val(),
+          'status': $('input:radio:checked[name=status]').val()
+        };
+
+        // 数据提交后端
+        form_ajax_submit(data, '/api/tvbox', 'PUT');
+      } else {
+        console.log('表单验证无效');
+      }
+    });
+
+  })
+</script>

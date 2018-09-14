@@ -1,0 +1,488 @@
+{% extends "base.html" %} {% block page_content %}
+
+<div class="right_col" role="main">
+  <!-- 消息框 -->
+  <div class="row" id="message" hidden="hidden">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel" style="text-align:center"></div>
+    </div>
+  </div>
+
+  <!-- 表格 -->
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <table id="table" class="table table-striped table-bordered table-hover nowrap compact" cellspacing="0" width="100%">
+          <thead>
+            <tr>
+              <th>
+                <input type="checkbox" id="check_all">
+              </th>
+              <th>uuid</th>
+              <th>
+                <i class="fa fa-search"></i> 序列号</th>
+              <th>
+                <i class="fa fa-search"></i> 购买人</th>
+              <th>
+                <i class="fa fa-search"></i> 型号</th>
+              <th>
+                <i class="fa fa-search"></i> 版本</th>
+              <th>开通时间</th>
+              <th>产品包</th>
+              <th>
+                <i class="fa fa-search"></i> 会员</th>
+              <th>
+                <i class="fa fa-search"></i> 合作商</th>
+              <th>
+                <i class="fa fa-search"></i> 分组</th>
+              <th>
+                <i class="fa fa-search"></i> 访问位置</th>
+              <th>
+                <i class="fa fa-search"></i> 访问ip</th>
+              <th>
+                <i class="fa fa-search"></i> 访问时间</th>
+              <th>
+                <i class="fa fa-search"></i> 推荐直播节点</th>
+              <th>
+                <i class="fa fa-search"></i> 状态</th>
+              <th>建立时间</th>
+              <th>更新时间</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function () {
+    // modal默认刷新
+    $('body').on('hidden.bs.modal', '.modal', function () {
+      $(this).removeData('bs.modal');
+
+      // datatables重绘
+      table.ajax.reload(null, false);
+    });
+
+    var table = $('#table').DataTable({
+      'processing': true,
+      'serverSide': true,
+      'ajax': function (data, callback, settings) {
+        //封装请求参数
+        //console.log(data);
+        var param = {};
+        param.draw = data.draw;
+        param.start = data.start;
+        param.length = data.length;
+        param.search = data.search['value'];
+        param.order = data.order[0]['dir'];
+        order_index = data.order[0]['column'];
+        param.order_name = data.columns[order_index]['data'];
+        //console.log(param);
+
+        //ajax请求数据
+        $.ajax({
+          'type': 'GET',
+          'url': '/api/tvbox/list',
+          'cache': false, //禁用缓存
+          'data': param, //传入组装的参数
+          'dataType': 'json',
+          'success': function (result) {
+            //console.log(result);
+            callback(result);
+          }
+        });
+      },
+
+      // 默认排序，序号参照column，由0开始
+      'order': [
+        [2, 'asc']
+      ],
+
+      // 定义列名
+      'columns': [{
+        'data': null,
+        'visible': true,
+        'orderable': false,
+        'searchable': false,
+        'render': function (data, type, row) {
+          return '<input type="checkbox" id="check">'
+        }
+      },
+      {
+        'data': 'uuid',
+        'visible': false,
+        'orderable': false,
+        'searchable': false,
+      },
+      {
+        'data': 'sn',
+        'visible': true,
+        'orderable': true,
+        'searchable': true,
+      },
+      {
+        'data': 'customer',
+        'visible': true,
+        'orderable': false,
+        'searchable': true,
+        'render': function (data, type, row, meta) {
+          if (data == null) {
+            return '';
+          } else {
+            return '<a href="javascript:viod(0)" id="customer"><span class="label label-info">' + data + '</span></a>';
+          }
+        }
+      },
+      {
+        'data': 'model',
+        'visible': true,
+        'orderable': false,
+        'searchable': true,
+      },
+      {
+        'data': 'version',
+        'visible': true,
+        'orderable': false,
+        'searchable': false,
+      },
+      {
+        'data': 'purchase_time',
+        'visible': false,
+        'orderable': false,
+        'searchable': false,
+        'render': function (data, type, row) {
+          return format_time(data);
+        }
+      },
+      {
+        'data': 'product',
+        'visible': true,
+        'orderable': false,
+        'searchable': false,
+        'render': function (data, type, row) {
+          return format_number(data);
+        }
+      },
+      {
+        'data': 'vip',
+        'visible': true,
+        'orderable': false,
+        'searchable': true,
+        'render': function (data, type, row) {
+          return format_vip(data);
+        }
+      },
+      {
+        'data': 'partner',
+        'visible': false,
+        'orderable': false,
+        'searchable': false,
+        'render': function (data, type, row) {
+          return format_string(data);
+        }
+      },
+      {
+        'data': 'grouping',
+        'visible': true,
+        'orderable': false,
+        'searchable': true,
+        'render': function (data, type, row) {
+          return format_string(data);
+        }
+      },
+      {
+        'data': 'access_location',
+        'visible': true,
+        'orderable': false,
+        'searchable': true,
+      },
+      {
+        'data': 'access_ip',
+        'visible': false,
+        'orderable': false,
+        'searchable': false,
+      },
+      {
+        'data': 'access_time',
+        'visible': true,
+        'orderable': true,
+        'searchable': true,
+        'render': function (data, type, row) {
+          return format_time(data);
+        }
+      },
+      {
+        'data': 'live_node',
+        'visible': false,
+        'orderable': false,
+        'searchable': false,
+      },
+      {
+        'data': 'status',
+        'visible': true,
+        'orderable': false,
+        'searchable': true,
+        'render': function (data, type, row) {
+          return format_stb_status(data);
+        }
+      },
+      {
+        'data': 'create_time',
+        'visible': false,
+        'orderable': false,
+        'searchable': false,
+        'render': function (data, type, row) {
+          return format_time(data);
+        }
+      },
+      {
+        'data': 'update_time',
+        'visible': false,
+        'orderable': false,
+        'searchable': false,
+        'render': function (data, type, row) {
+          return format_time(data);
+        }
+      },
+      {
+        'data': null,
+        'visible': true,
+        'orderable': false,
+        'searchable': false,
+        'render': function (data, type, row) {
+          return '<a href="#" id="RowShow"><i class="fa fa-eye"></i></a> ' +
+            '<a href="#" id="RowEdit"><i class="fa fa-edit"></i></a> ' +
+            '<a href="#" id="RowDelete"><i class="fa fa-trash-o"></i></a>';
+        }
+      }
+      ],
+
+      // 定义列属性
+      //'columnDefs': [],
+
+      // 增加表头按钮
+      'dom': '<"toolbar"f>rtip',
+      'initComplete': function () {
+        $("div.toolbar").append(
+          '<button id="RowAdd" class="col-md-1 btn btn-default btn-sm"><i class="fa fa-file-o"></i></button>' +
+          '<button id="SelectDelete" class="col-md-1 btn btn-warning btn-sm" disabled="disabled"><i class="fa fa-trash-o"></i></button>' +
+          '<button id="bulkImport" class="col-md-1 btn btn-default btn-sm"><i class="fa fa-flash"></i></button>'
+        );
+      },
+    });
+
+    // 弹出客户信息
+    $('table tbody').on('click', '#customer', function () {
+      // 取当前行值
+      var current_row = $(this).closest('tr');
+      var data = table.row(current_row).data();
+
+      $.get('/api/tvbox/customer?uuid=' + data.uuid, function (d) {
+        // 调用modal框
+        $('.modal-content').load('/modal/customer/show', function () {
+          $('#uuid').html(d.uuid);
+          $('#name').html(d.name);
+          $('#phone').html(d.phone);
+          $('#mail').html(d.mail);
+          $('#address').html(d.address);
+          $('#description').html(d.description);
+          $('#stb').html(format_string(d.stb));
+          $('#create_time').html(format_time(d.create_time));
+          $('#update_time').html(format_time(d.update_time));
+        });
+
+        // 显示modal框
+        $('#myModal').modal({ 'backdrop': 'static', 'keyboard': false }, 'show');
+      });
+    });
+
+    // 新建行记录
+    $('body').on('click', 'button#RowAdd', function () {
+      $('.modal-content').load('/modal/tvbox/add');
+      $('#myModal').modal({ 'backdrop': 'static', 'keyboard': false }, 'show');
+    });
+
+    // 指量导入
+    $('body').on('click', 'button#bulkImport', function () {
+      $('.modal-content').load('/modal/tvbox/import');
+      $('#myModal').modal({ 'backdrop': 'static', 'keyboard': false }, 'show');
+    });
+
+    // 多行选择
+    $('table thead').on('click', '#check_all', function () {
+      $('table').find('tbody :checkbox').prop('checked', this.checked).closest('tr').toggleClass('selected',
+        this.checked);
+
+      // 删除按钮启禁用
+      $('#SelectDelete').prop('disabled', $(this).prop('checked') ? false : true);
+    });
+
+    // 单行选择
+    $('table tbody').on('click', '#check', function () {
+      $(this).prop('checked', this.checked).closest('tr').toggleClass('selected', this.checked);
+
+      // 删除按钮启禁用
+      $('#SelectDelete').prop('disabled', $(this).closest('tbody').find('input:checkbox:checked').length === 0 ?
+        true : false);
+    });
+
+    // 删除已选行记录
+    $('body').on('click', 'button#SelectDelete', function () {
+      // 取所选行值
+      var current_row = table.rows('.selected');
+      var uuid = new Array();
+      var sn = new Array();
+
+      $.each(current_row.data(), function (idx, val) {
+        uuid.push(val.uuid);
+        sn.push(val.sn);
+      });
+
+      // 调用modal框
+      $('.modal-content').load('/modal/tvbox/delete', function () {
+        // 删除框提示信息
+        var message = '<h4>确认删除序列号 [' + sn.join(', ') + '] 电视盒?</h4>';
+        $('div#info').append(message);
+
+        // 按钮提交事件
+        $('button#save').on('click', function (e) {
+          e.preventDefault();
+          var data = {
+            'uuid': uuid
+          }
+
+          // 数据提交后端处理
+          form_ajax_submit(data, '/api/tvbox', 'DELETE');
+        });
+      });
+
+      // 显示modal框
+      $('#myModal').modal({ 'backdrop': 'static', 'keyboard': false }, 'show');
+    });
+
+    // 显示行记录
+    $('table tbody').on('click', 'a#RowShow', function () {
+      // 取当前行值
+      var current_row = $(this).closest('tr');
+      var d = table.row(current_row).data();
+
+      // 调用modal框
+      $('.modal-content').load('/modal/tvbox/show', function () {
+        $('#uuid').html(d.uuid);
+        $('#sn').html(d.sn);
+        $('#model').html(d.model);
+        $('#version').html(d.version);
+        $('#customer').html(d.customer);
+        $('#product').html(format_string(d.product));
+        $('#purchase_time').html(format_time(d.purchase_time));
+        $('#vip').html(format_vip(d.vip));
+        $('#partner').html(format_string(d.partner));
+        $('#grouping').html(format_string(d.grouping));
+        $('#access_location').html(d.access_location);
+        $('#access_ip').html(d.access_ip);
+        $('#access_time').html(format_time(d.access_time));
+        $('#live_node').html(d.live_node);
+        $('#status').html(format_stb_status(d.status));
+        $('#create_time').html(format_time(d.create_time));
+        $('#update_time').html(format_time(d.update_time));
+      });
+
+      // 显示modal框
+      $('#myModal').modal({ 'backdrop': 'static', 'keyboard': false }, 'show');
+    });
+
+    // 编辑行记录
+    $('table tbody').on('click', 'a#RowEdit', function () {
+      // 取当前行值
+      var current_row = $(this).closest('tr');
+      var uuid = table.row(current_row).data().uuid;
+
+      // 调用modal框
+      $('.modal-content').load('/modal/tvbox/edit', function () {
+        // 后台获取当前行所有数据
+        $.get('/api/tvbox?uuid=' + uuid, function (d) {
+          // 原值预显
+          $('#uuid').val(d.uuid);
+          $('#sn').val(d.sn);
+
+          if (d.customer_uuid !== null) {
+            $.get('/select/customer?uuid=' + d.customer_uuid, function (s) {
+              var option = new Option(s.text, s.id, true, true);
+              $('select#customer').append(option).trigger('change');
+            });
+          }
+
+          if (d.partner_uuid !== null) {
+            $.get('/select/partner?uuid=' + d.partner_uuid, function (s) {
+              var option = new Option(s.text, s.id, true, true);
+              $('select#partner').append(option).trigger('change');
+            });
+          }
+
+          if (d.product_uuid !== null) {
+            var product = d.product_uuid.split(',');
+            for (var i = 0; i < product.length; i++) {
+              $.get('/select/product?uuid=' + product[i], function (s) {
+                var option = new Option(s.text, s.id, true, true);
+                $('select#product').append(option).trigger('change');
+              });
+            }
+          }
+
+          if (d.grouping_uuid !== null) {
+            $.get('/select/grouping?uuid=' + d.grouping_uuid, function (s) {
+              var option = new Option(s.text, s.id, true, true);
+              $('select#grouping').append(option).trigger('change');
+            });
+          }
+
+          if (d.live_node_uuid !== null) {
+            $.get('/select/live_node?uuid=' + d.live_node_uuid, function (s) {
+              var option = new Option(s.text, s.id, true, true);
+              $('select#live_node').append(option).trigger('change');
+            });
+          }
+
+          $('input:radio[name="status"][value="' + d.status + '"]').attr('checked', 'checked');
+        });
+      });
+
+      // 显示modal框
+      $('#myModal').modal({ 'backdrop': 'static', 'keyboard': false }, 'show');
+    });
+
+    // 删除行记录
+    $('table tbody').on('click', 'a#RowDelete', function () {
+      // 取当前行值
+      var current_row = $(this).closest('tr');
+      var sn = table.row(current_row).data().sn;
+      var uuid = [];
+      uuid.push(table.row(current_row).data().uuid);
+
+      // 调用modal框
+      $('.modal-content').load('/modal/tvbox/delete', function () {
+        // 删除框提示信息
+        var message = '<h4>确认删除序列号 [' + sn + '] 电视盒?</h4>';
+        $('div#info').append(message);
+
+        // 按钮提交事件
+        $('button#save').on('click', function (e) {
+          e.preventDefault();
+          var data = {
+            'uuid': uuid
+          }
+
+          // 数据提交后端处理
+          form_ajax_submit(data, '/api/tvbox', 'DELETE');
+        });
+      });
+
+      // 显示modal框
+      $('#myModal').modal({ 'backdrop': 'static', 'keyboard': false }, 'show');
+    });
+
+  });
+</script> {% endblock %}
