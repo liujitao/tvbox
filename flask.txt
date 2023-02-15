@@ -33,5 +33,5 @@ SQLAlchemy==1.1.15
 typing==3.6.2
 urllib3==1.22
 uWSGI==2.0.15
-Werkzeug==0.13
+Werkzeug==2.2.3
 wrapt==1.10.11
